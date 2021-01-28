@@ -1,2 +1,2 @@
 #!/bin/bash
-ln -s /bin/ls__ls__ /holberton-system_engineering-devops/0x00-shell_basics
+ln -s /bin/ls__ls__  /tmp/sym
