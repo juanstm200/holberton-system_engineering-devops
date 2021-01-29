@@ -1,2 +1,16 @@
 #!/bin/bash
-ls -a --format commas -F
+ls -amp
+
+
+
+
+
+
+
+
+
+
+
+
+
+
