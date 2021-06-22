@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# I am invincible!!!‎ al recibir un‎ SIGTERM signal
+for ((;;))
+    do
+	echo "To infinity and beyond"
+	trap "I am invincible!!!" SIGTERM
+	sleep 2
+    done
