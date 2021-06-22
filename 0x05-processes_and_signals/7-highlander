@@ -2,7 +2,7 @@
 # I am invincible!!! al recibir un SIGTERM signal
 for ((;;))
     do
-	trap "I am invincible!!!" SIGTERM
+	trap "echo I am invincible!!!" SIGTERM
 	echo "To infinity and beyond"
 	sleep 2
     done
