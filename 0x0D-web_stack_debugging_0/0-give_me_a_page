@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Server debugging appli html and serverName
-
+apt-get install apache2 -y
+service apache2 start
 echo "ServerName 127.0.0.1" >> /etc/apache2/apache2.conf
 echo "Hello Holberton" > /var/www/html/index.html
-sudo service apache2 restart
 
