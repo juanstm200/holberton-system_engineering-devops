@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# Script to create a redirection
+# Script redirection
 sudo apt-get update -y && sudo apt-get upgrade -y
 sudo apt-get install -y nginx
 sudo chown -R "$USER":"$USER" /var/www/
 sudo chown -R "$USER":"$USER" /etc/nginx
 echo "Hello World" > /var/www/html/index.nginx-debian.html
-redurl="        rewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PL0Be65Ci2ktbcu91um0Nb6H0iZVRaP6cL&index=44&ab_channel=RickAstley permanent;"
+redurl="        rewrite ^/redirect_me https://twitter.com/JuanS_Tovar permanent;"
 sudo sed -i "53i $redurl" /etc/nginx/sites-available/default
 sudo service nginx restart
 sudo service nginx reload
