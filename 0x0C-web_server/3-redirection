@@ -5,4 +5,3 @@ echo "Hello World" > /var/www/html/index.nginx-debian.html
 sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/watch?v=dQw4w9WgXcQ&list=PL0Be65Ci2ktbcu91um0Nb6H0iZVRaP6cL&index=44&ab_channel=RickAstley permanent;' /etc/nginx/sites-available/default
 sudo service nginx restart
 sudo service nginx reload
-y
