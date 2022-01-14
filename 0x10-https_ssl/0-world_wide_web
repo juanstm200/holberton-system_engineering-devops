@@ -1,23 +1,16 @@
 #!/usr/bin/env bash
-# Display information of subdomains.
-
-excute () {
-        RECORD_TYPE=$(dig "$2"."$1" | awk 'BEGIN{OFS=" ";} /^'$2'/{print $4}')
-        DESTINATION=$(dig "$2"."$1" | awk 'BEGIN{OFS=" ";} /^'$2'/{print $5}')
-        echo "The subdomain $2 is a $RECORD_TYPE record and points to $DESTINATION"
+# This file gives information about a domain specified in arguments
+print_function() {
+    echo -n "The subdomain $1 is a "
+    dig "$1.$2" | grep -A1 'ANSWER SECTION:' | tail -n1 | cut -b 1- | awk '{printf $4}'
+    echo -n " record and points to "
+    dig "$1.$2" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{print $5}'
 }
-domain=$1
-subdomain=$2
-subdomains=( www lb-01 web-01 web-02 )
-check () {
-    if [[ $subdomain == "" ]]
-    then
-        for x in "${subdomains[@]}"
-        do
-            excute "$domain" "$x"
-        done
-    else
-        excute "$domain" "$subdomain"
-    fi
-    return 0
-}
+if [ "$#" -gt 1 ]; then
+    print_function "$2" "$1"
+else
+    print_function "www" "$1"
+    print_function "lb-01" "$1"
+    print_function "web-01" "$1"
+    print_function "web-02" "$1"
+fi; 
