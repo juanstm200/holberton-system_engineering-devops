@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+if [[ "$(whoami)" == "${1}" ]]; then
+ echo "${1}"
+ exit 1
+ fi
