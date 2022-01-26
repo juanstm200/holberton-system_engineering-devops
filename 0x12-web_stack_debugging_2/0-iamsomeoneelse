@@ -1,5 +1,3 @@
 #!/usr/bin/env bash
-if [[ "$(whoami)" == "${1}" ]]; then
- echo "${1}"
- exit 1
- fi
+# verify that user exists by whoami
+sudo -u "$1" whoami
