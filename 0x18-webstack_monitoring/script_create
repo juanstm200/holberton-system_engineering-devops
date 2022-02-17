@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+nano "$1" && chmod 777 "$1"
+ls -la "$1"
+git add "$1"
+echo "Ingrese el Commit"
+read var
+git commit -m $var
+git push
